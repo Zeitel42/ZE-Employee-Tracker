@@ -3,10 +3,10 @@ const mysql = require("mysql2");
 const db = mysql.createConnection({
   host: "localhost",
   // Your MySQL username,
-  user: "root",
+  user: process.env.USER_ID,
   // Your MySQL password
-  password: "rootroot",
-  database: "employee-tracker",
+  password: process.env.USER_KEY,
+  database: process.env.NODE_ENV,
 });
 
 module.exports = db;

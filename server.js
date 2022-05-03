@@ -1,8 +1,10 @@
 const express = require("express");
 const db = require("./db/connection");
+const prompts = require("./utils/prompts");
+const inquirer = require("inquirer");
 // const apiRoutes = require("./routes/apiRoutes");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 const app = express();
 
