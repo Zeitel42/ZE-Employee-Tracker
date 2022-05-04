@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const department = require("../routes/department");
 
 function initialPrompts() {
   const firstQuestion = [
@@ -23,30 +24,40 @@ function initialPrompts() {
     //switch statement to handle user choice
     switch (val) {
       case "View All Departments":
-        viewAllDepartments();
+        console.log("View All Departments");
+        // initialPrompts();
+        department();
         break;
       case "View All Roles":
-        // console.log("Intern prompts");
-        viewAllRoles();
+        // console.log("View All Roles");
+        initialPrompts();
+        // viewAllRoles();
         break;
       case "View All Employees":
-        viewAllEmployees();
+        console.log("View All Employees");
+        initialPrompts();
+        // viewAllEmployees();
         break;
       case "Add A Department":
-        addADepartment();
+        console.log("Add a department");
+        initialPrompts();
+        // addADepartment();
         break;
       case "Add A Role":
-        addARole();
+        console.log("Add a role");
+        initialPrompts();
+        // addARole();
         break;
       case "Add An Employee":
-        addAnEmployee();
+        console.log("Add an employee");
+        initialPrompts();
+        // addAnEmployee();
         break;
-      case "I'm finished":
-        console.log("Writing HTML file...");
-        generateHTML();
+      default:
+        console.log("Back the truck up...");
+        // generateHTML();
         break;
     }
   });
 }
-
 module.exports = initialPrompts();

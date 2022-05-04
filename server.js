@@ -1,7 +1,7 @@
 const express = require("express");
+const inquirer = require("inquirer");
 const db = require("./db/connection");
 const prompts = require("./utils/prompts");
-const inquirer = require("inquirer");
 // const apiRoutes = require("./routes/apiRoutes");
 
 const PORT = process.env.PORT || 3002;
@@ -18,7 +18,10 @@ app.use((req, res) => {
 
 db.connect(() => {
   console.log("Database Connected.");
+
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 });
+
+prompts;
