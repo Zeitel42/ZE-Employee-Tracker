@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
-const department = require("../routes/department");
+const departments = require("../routes/departmentsRoutes");
+// const router = require("router");
 
 function initialPrompts() {
   const firstQuestion = [
@@ -26,7 +27,6 @@ function initialPrompts() {
       case "View All Departments":
         console.log("View All Departments");
         // initialPrompts();
-        department();
         break;
       case "View All Roles":
         // console.log("View All Roles");
