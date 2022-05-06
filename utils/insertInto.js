@@ -28,7 +28,7 @@ async function addDepartments() {
     connection.query(departments, (err, res, fields) => {
       if (err) throw err;
       const table = cTable.getTable(res);
-      console.log("New department (", val, ")was added");
+      console.log("New department (", val, ") was added");
     });
   });
 }

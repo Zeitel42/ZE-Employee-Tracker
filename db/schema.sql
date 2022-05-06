@@ -19,7 +19,7 @@ CREATE TABLE roles(
 );
 
 CREATE TABLE employees (
-  employeesId AS employee ID INTEGER AUTO_INCREMENT,
+  employeesId INTEGER AUTO_INCREMENT,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   job_title VARCHAR(30) NOT NULL,

@@ -59,9 +59,9 @@ async function initialPrompts() {
         });
         break;
       case "Add A Department":
-        // console.log("Add a department");
-
-        insertInto.addDepartments();
+        insertInto.addDepartments().then(() => {
+          initialPrompts();
+        });
         // initialPrompts();
         break;
       case "Add A Role":
