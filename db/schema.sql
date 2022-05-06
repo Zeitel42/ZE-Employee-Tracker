@@ -4,21 +4,30 @@ DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS employees;
 
 CREATE TABLE departments(
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    department_name VARCHAR(50) NOT NULL
+    departmentsId INTEGER AUTO_INCREMENT PRIMARY KEY,
+    departments_name VARCHAR(50) NOT NULL
   );
 
 CREATE TABLE roles(
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  rolesId INTEGER AUTO_INCREMENT,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
-  department_id INTEGER NOT NULL
+  departmentsId INTEGER NOT NULL,
+  PRIMARY KEY (rolesId),
+  FOREIGN KEY (departmentsId) REFERENCES departments(departmentsId)
+
 );
 
 CREATE TABLE employees (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  employeesId AS employee ID INTEGER AUTO_INCREMENT,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
-  roles_id INTEGER NULL,
-  manager_id INTEGER NULL
+  job_title VARCHAR(30) NOT NULL,
+  departmentsId INTEGER NOT NULL,
+  rolesId INTEGER NOT NULL,
+  managerId INTEGER NULL,
+  PRIMARY KEY (employeesId),
+  FOREIGN KEY (rolesId) REFERENCES roles(rolesId),
+  FOREIGN KEY (managerId) REFERENCES roles(rolesId)
 );
+

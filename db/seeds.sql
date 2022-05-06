@@ -1,17 +1,17 @@
 
 
 INSERT INTO departments
-  (department_name)
+  (departments_name)
 VALUES
   ('Operations'),
   ('Human Resources');
   
 
 INSERT INTO roles
-  (title, salary, department_id)
+  (title, salary, departmentsId)
 VALUES
-('Supervisor', 75000.00, 1),
-('Maintenance', 50000.00, 1),
+('Manager', 85000.00, 1),
+('Maintenance Mechanic', 50000.00, 1),
 ('Operator', 65000.00, 1),
 ('Warehouse', 60000.00, 1),
 ('Utility Mechanic',40000.00, 1),
@@ -19,15 +19,22 @@ VALUES
 ('Generalist', 50000.00, 2);
 
 INSERT INTO employees
-(first_name, last_name, roles_id, manager_id)
+(first_name, last_name, job_title, departmentsId, rolesId, managerId)
 VALUES
-  ('Ronald', 'Firbank', 1, 2),
-  ('Virginia', 'Woolf', 1, 2),
-  ('Piers', 'Gaveston', 2, 0),
-  ('Charles', 'LeRoi', 3, 1),
-  ('Katherine', 'Mansfield', 4, 1),
-  ('Dora', 'Carrington', 5, 0),
-  ('Edward', 'Bellamy', 6, 0),
-  ('Montague', 'Summers', 7, 1),
-  ('Octavia', 'Butler', 3, 1),
-  ('Unica', 'Zurn', NULL, 1);
+  ('Ronald', 'Firbank', 'Manager', 1, 1, NULL),
+  ('Virginia', 'Woolf', 'Manager', 1, 2, NULL),
+  ('Piers', 'Gaveston', 'Manager', 2, 2, NULL),
+  ('Charles', 'LeRoi', 'Maintenance Mechanic', 1, 3, 1),
+  ('Katherine', 'Mansfield', 'Operator', 1, 4, 1),
+  ('Dora', 'Carrington', 'Warehouse', 1, 5, 3),
+  ('Edward', 'Bellamy', 'Utility Mechanic', 1, 6, 3),
+  ('Montague', 'Summers', 'Office Assistant', 2, 7, 1),
+  ('Octavia', 'Butler', 'Generalist', 2, 3, 1),
+  ('Unica', 'Zurn', 'Operator', 1, 3, 1);
+
+--   INSERT INTO managers
+-- (first_name, last_name, title)
+-- VALUES
+--   ('Donna', 'Godchaux', 'Operations Manager'),
+--   ('Janis', 'Joplin', 'Human Resources Manager'),
+--   ('Amy', 'Lee', 'Maintenance Manager');
