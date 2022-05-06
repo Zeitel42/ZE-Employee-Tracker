@@ -1,6 +1,6 @@
 
 
-INSERT INTO department
+INSERT INTO departments
   (department_name)
 VALUES
   ('Operations'),
