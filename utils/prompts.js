@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const express = require("express");
 const cTable = require("console.table");
-const insertInto = require("./insertInto");
+const insert = require("./insert");
 
 const connection = require("../db/connection");
 // const queries = require("./queries");
@@ -59,15 +59,14 @@ async function initialPrompts() {
         });
         break;
       case "Add A Department":
-        insertInto.addDepartments().then(() => {
+        insert.addDepartments().then(() => {
           initialPrompts();
         });
-        // initialPrompts();
         break;
       case "Add A Role":
-        // console.log("Add a role");
-
-        // addARole();
+        insert.addRoles().then(() => {
+          initialPrompts();
+        });
         break;
       case "Add An Employee":
         // console.log("Add an employee");
@@ -76,7 +75,7 @@ async function initialPrompts() {
         break;
       default:
         console.log("Back the truck up...");
-        // generateHTML();
+        initialPrompts();
         break;
     }
   });
