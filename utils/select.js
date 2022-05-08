@@ -5,20 +5,21 @@ const connection = require("../db/connection");
 // Get department names to use in roles prompt
 let rowData;
 function getDepartments() {
-  let getDepts = `SELECT departments_name FROM departments`;
-  connection
+  let getDepts = `SELECT * FROM departments`;
+  return connection
     .promise()
     .query(getDepts)
     .then((res) => {
-      let row = Object.values(
+      let name = Object.values(
         res[0].map(function (departments) {
-          return departments.departments_name;
+          return departments;
         })
       );
-      console.log(row);
+      // console.log(row);
+      return name;
     });
 }
-getDepartments();
+// getDepartments()
 
 module.exports = {
   getDepartments,
