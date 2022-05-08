@@ -1,16 +1,24 @@
 const express = require("express");
+const { restoreDefaultPrompts } = require("inquirer");
+const connection = require("../db/connection");
+
 // Get department names to use in roles prompt
-
-async function getDepartments() {
-  let getDepts = `SELECT * FROM departments`;
-  connection.query(getDepts, (err, res, fields) => {
-    if (err) throw err;
-
-    console.log(res.departments_name, " ", res.departmentsId);
-    departmentNamesArray.push(res.departments_name);
-    console.log(departmentNamesArray);
-  });
+let rowData;
+function getDepartments() {
+  let getDepts = `SELECT departments_name FROM departments`;
+  connection
+    .promise()
+    .query(err, getDepts)
+    .then((res) => {
+      let row = Object.values(
+        res[0].map(function (departments) {
+          return departments.departments_name;
+        })
+      );
+      console.log(row);
+    });
 }
+getDepartments();
 
 module.exports = {
   getDepartments,

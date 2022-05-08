@@ -35,15 +35,8 @@ async function addDepartments() {
 // Get department names and store in array
 
 // Add a new role
-async function addRoles() {
-  let departmentNamesArray = [];
-  async function getDeptNames() {
-    await selectQuery().then((name) => {
-      const val = Object.values(name).shift().toString();
-      console.log(name);
-    });
-  }
-  getDeptNames();
+
+function addRoles() {
   const addARole = [
     {
       type: "input",
@@ -75,26 +68,26 @@ async function addRoles() {
       type: "list",
       name: "department",
       message: "What department does the new role belong to?",
-      choices: departmentNamesArray,
+      choices: [],
       validate: (nameInput) => {
         if (nameInput) {
           return true;
         } else {
-          console.log("please enter the salary for the new role!");
+          console.log("What department does this role belong to?");
           return false;
         }
       },
     },
   ];
-  await inquirer.prompt(addARole).then((title) => {
-    const val = Object.values(title).shift().toString();
-    let roles = `INSERT INTO roles(title)
-      VALUES ('${val}')`;
-    connection.query(roles, (err, res, fields) => {
-      if (err) throw err;
-      const table = cTable.getTable(res);
-      console.log("New role (", val, ") was added");
-    });
+  inquirer.prompt(addARole).then(() => {
+    // const val = Object.values(title);
+    // let roles = `INSERT INTO roles(title)
+    //   VALUES ('${val}')`;
+    // connection.query(roles, (err, res, fields) => {
+    //   if (err) throw err;
+    //   const table = cTable.getTable(res);
+    //   console.log("New role (", val, ") was added");
+    // });
   });
 }
 

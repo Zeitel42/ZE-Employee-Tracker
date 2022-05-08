@@ -15,7 +15,7 @@ app.use((req, res) => {
   res.status(404).end();
 });
 
-connection.connect((err) => {
+connection.connect(async (err) => {
   if (err) throw err;
   console.log("Database Connected");
 });

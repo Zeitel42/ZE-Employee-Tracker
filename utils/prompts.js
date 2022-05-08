@@ -65,7 +65,7 @@ async function initialPrompts() {
         break;
       case "Add A Role":
         insert.addRoles().then(() => {
-          initialPrompts();
+          // initialPrompts();
         });
         break;
       case "Add An Employee":
