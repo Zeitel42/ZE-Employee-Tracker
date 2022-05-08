@@ -8,7 +8,7 @@ function getDepartments() {
   let getDepts = `SELECT departments_name FROM departments`;
   connection
     .promise()
-    .query(err, getDepts)
+    .query(getDepts)
     .then((res) => {
       let row = Object.values(
         res[0].map(function (departments) {
