@@ -22,12 +22,12 @@ INSERT INTO employees
 (first_name, last_name, job_title, departmentsId, rolesId, managerId)
 VALUES
   ('Ronald', 'Firbank', 'Manager', 1, 1, NULL),
-  ('Virginia', 'Woolf', 'Manager', 1, 2, NULL),
-  ('Piers', 'Gaveston', 'Manager', 2, 2, NULL),
+  ('Virginia', 'Woolf', 'Manager', 1, 1, NULL),
+  ('Piers', 'Gaveston', 'Manager', 2, 1, NULL),
   ('Charles', 'LeRoi', 'Maintenance Mechanic', 1, 3, 1),
   ('Katherine', 'Mansfield', 'Operator', 1, 4, 1),
-  ('Dora', 'Carrington', 'Warehouse', 1, 5, 3),
-  ('Edward', 'Bellamy', 'Utility Mechanic', 1, 6, 3),
+  ('Dora', 'Carrington', 'Warehouse', 1, 5, 1),
+  ('Edward', 'Bellamy', 'Utility Mechanic', 1, 6, 1),
   ('Montague', 'Summers', 'Office Assistant', 2, 7, 1),
   ('Octavia', 'Butler', 'Generalist', 2, 3, 1),
   ('Unica', 'Zurn', 'Operator', 1, 3, 1);
