@@ -2,7 +2,6 @@ const inquirer = require("inquirer");
 const express = require("express");
 const cTable = require("console.table");
 const insert = require("./query");
-const initial = require("./initialPrompt");
 
 const connection = require("../db/connection");
 // const queries = require("./queries");
@@ -21,6 +20,7 @@ async function initialPrompts() {
           "Add A Department",
           "Add A Role",
           "Add An Employee",
+          "Update An Employee Role",
         ],
       },
     ])
@@ -30,7 +30,6 @@ async function initialPrompts() {
       //switch statement to handle user choice
       switch (val) {
         case "View All Departments":
-          // console.log("This is the placeholder for queries");
           let departments = `SELECT * FROM departments`;
           connection.query(departments, (err, res, fields) => {
             if (err) throw err;
@@ -41,7 +40,6 @@ async function initialPrompts() {
 
           break;
         case "View All Roles":
-          // console.log("View All Roles");
           let roles = `SELECT * FROM roles`;
           connection.query(roles, (err, res, fields) => {
             if (err) throw err;
@@ -51,7 +49,6 @@ async function initialPrompts() {
           });
           break;
         case "View All Employees":
-          // console.log("View All Employees");
           let employees = `SELECT * FROM employees`;
           connection.query(employees, (err, res, fields) => {
             if (err) throw err;
@@ -61,21 +58,26 @@ async function initialPrompts() {
           });
           break;
         case "Add A Department":
-          insert.addDepartments();
-          // .then(() => {
-          //   // initialPrompts();
-          // });
+          insert.addDepartments().then(async () => {
+            await initialPrompts();
+          });
           break;
         case "Add A Role":
-          insert.addRoles();
-          // .then(() => {
-          //   // initialPrompts();
-          // });
+          insert.addRoles().then(async () => {
+            await initialPrompts();
+          });
+
           break;
         case "Add An Employee":
-          // console.log("Add an employee");
           // initialPrompts();
-          insert.addEmployees();
+          insert.addEmployees().then(async () => {
+            await initialPrompts();
+          });
+          break;
+        case "Update An Employee Role":
+          insert.updateEmployee().then(async () => {
+            await initialPrompts();
+          });
           break;
         default:
           console.log("Back the truck up...");

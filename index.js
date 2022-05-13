@@ -17,7 +17,7 @@ app.use((req, res) => {
 
 connection.connect(async (err) => {
   if (err) throw err;
-  console.log("Database Connected");
+  // console.log("Database Connected");
 });
 
 // userPrompts();
