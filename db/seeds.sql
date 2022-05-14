@@ -32,9 +32,3 @@ VALUES
   ('Octavia', 'Butler', 3, 1),
   ('Unica', 'Zurn', 3, 1);
 
---   INSERT INTO managers
--- (first_name, last_name, title)
--- VALUES
---   ('Donna', 'Godchaux', 'Operations Manager'),
---   ('Janis', 'Joplin', 'Human Resources Manager'),
---   ('Amy', 'Lee', 'Maintenance Manager');

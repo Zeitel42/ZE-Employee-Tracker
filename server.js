@@ -1,6 +1,6 @@
 const express = require("express");
 const cTable = require("console.table");
-const connection = require("./db/connection.js");
+const connection = require("./connection.js");
 // const env = require("dotenv").config();
 const userPrompts = require("./utils/prompts");
 
@@ -17,7 +17,10 @@ app.use((req, res) => {
 
 connection.connect(async (err) => {
   if (err) throw err;
-  // console.log("Database Connected");
+  console.log("Database Connected");
+  startApp();
 });
 
-// userPrompts();
+const startApp = async () => {
+  await userPrompts();
+};

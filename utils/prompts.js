@@ -3,7 +3,7 @@ const express = require("express");
 const cTable = require("console.table");
 const insert = require("./query");
 
-const connection = require("../db/connection");
+const connection = require("../connection");
 // const queries = require("./queries");
 
 async function initialPrompts() {
@@ -86,5 +86,5 @@ async function initialPrompts() {
       }
     });
 }
-initialPrompts();
+// initialPrompts();
 module.exports = initialPrompts;

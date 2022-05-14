@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const express = require("express");
 const cTable = require("console.table");
 
-const connection = require("../db/connection");
+const connection = require("../connection");
 
 const res = require("express/lib/response");
 
@@ -208,12 +208,12 @@ async function updateEmployee() {
     .promise()
     .query(getEmployee)
     .then(async ([employeeResults]) => {
-      console.log(employeeResults);
+      // console.log(employeeResults);
       return connection
         .promise()
         .query(getRoles)
         .then(async ([rolesResults]) => {
-          console.log(rolesResults);
+          // console.log(rolesResults);
           await inquirer
             .prompt([
               {
@@ -248,7 +248,7 @@ async function updateEmployee() {
             .then((answers) => {
               let updateEmployeeRole =
                 "UPDATE employees SET rolesId = ? WHERE employeesId = ?";
-              console.log(answers);
+              // console.log(answers);
               connection.query(
                 updateEmployeeRole,
                 [answers.role, answers.employee],
